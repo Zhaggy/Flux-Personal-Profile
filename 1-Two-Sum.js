@@ -5,6 +5,8 @@ var twoSum = function(nums, target) {
     }
 };
 
+// Count: 2
+
 /*
 var twoSum = function(nums, target) {
     for (let i = 0; i <= nums.length; i++) {
