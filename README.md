@@ -1,1 +1,1 @@
-## Daily Algorithm Practice
+## Algorithm Practice
