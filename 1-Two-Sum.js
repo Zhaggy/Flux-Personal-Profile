@@ -5,7 +5,7 @@ var twoSum = function(nums, target) {
     }
 };
 
-// Count: 2
+// Count: 002
 
 /*
 var twoSum = function(nums, target) {

@@ -5,4 +5,4 @@ var canWinNim = function(n) {
 console.log(canWinNim(10));
 
 // RUNTIME: 128 ms
-// COUNT: 3
+// COUNT: 003
