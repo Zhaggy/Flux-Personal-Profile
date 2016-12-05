@@ -7,5 +7,7 @@ var singleNumber = function(nums) {
     for (key in d) return +key;
 };
 
+console.log(singleNumber([1,2,3,3,1,2,5]))
+
 // RUNTIME: 129 ms
 // COUNT: 005
