@@ -10,6 +10,10 @@ const dirReduc = arr => {
         arr.splice(i, 2);
         changes++;
       }
+      if (shouldDelete(arr[i], arr[i - 1])) {
+        arr.splice(i - 1, 2);
+        changes++;
+      }
     }
     if (changes === 0) going = false;
   }
