@@ -32,3 +32,7 @@ console.log(oneAway('pales', 'pale'));
 console.log(oneAway('pale', 'bale'));
 console.log(oneAway('pale', 'bake'));
 // true, true, true, false
+
+
+// TIME COMPLEXITY: O(n)
+// SPACE COMPLEXITY: O(1)
