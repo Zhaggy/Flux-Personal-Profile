@@ -4,7 +4,7 @@
 // spaces. Spaces will be included only when more than one word is present.
 
 const spinWords = str => {
-  return str.split(' ').map((c, i, a) => {
+  return str.split(' ').map(c => {
     if (c.length >= 5) {
       return c.split('').reverse().join();
     }
