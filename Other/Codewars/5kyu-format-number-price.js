@@ -6,4 +6,37 @@
 //function should return a string 'NaN' if the input is not a valid number
 
 
-const numberToPrice
+const numberToPrice = num => {
+  if (isNaN(num)) return 'NaN';
+
+  let numStr = num.toString();
+  let ind = numStr.indexOf('.')
+  ind = ind != -1 ? ind : numStr.length;
+  preD = numStr.substr(0, ind);
+  postD = numStr.substr(ind);
+
+  if (postD.length > 2) postD = postD.substr(0, 3);
+  if (postD.length < 2) {
+    if (postD.length === 0) postD = '.00';
+    while (postD.lenght < 2) {
+      postD += '0';
+    }
+  }
+
+  let newPreD = '';
+  for (let i = preD.length - 1, count = 1; i >= 0; i--, count++) {
+    newPreD = preD[i] + newPreD;
+    if (count === 3) {
+      newPreD = ',' + newPreD;
+      count = 0;
+    }
+  }
+
+  return newPreD + postD;
+}
+
+
+console.log(numberToPrice(1234567));
+// 1,234,567.00
+console.log(numberToPrice(1234));
+console.log(numberToPrice('hi'));
