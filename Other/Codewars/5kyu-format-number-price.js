@@ -12,25 +12,25 @@ const numberToPrice = num => {
   let numStr = num.toString();
   let ind = numStr.indexOf('.')
   ind = ind != -1 ? ind : numStr.length;
-  preD = numStr.substr(0, ind);
-  postD = numStr.substr(ind);
+  numInt = numStr.substr(0, ind);
+  numDec = numStr.substr(ind);
 
-  if (postD.length > 2) postD = postD.substr(0, 3);
-  if (postD.length < 3) {
-    if (postD.length === 0) postD = '.00';
-    while (postD.length <= 2) postD += '0';
+  if (numDec.length > 2) numDec = numDec.substr(0, 3);
+  if (numDec.length < 3) {
+    if (numDec.length === 0) numDec = '.00';
+    while (numDec.length <= 2) numDec += '0';
   }
 
   let newPreD = '';
-  for (let i = preD.length - 1, count = 1; i >= 0; i--, count++) {
-    newPreD = preD[i] + newPreD;
-    if (count === 3 && i !== 0 && preD[i - 1] !== '-') {
+  for (let i = numInt.length - 1, count = 1; i >= 0; i--, count++) {
+    newPreD = numInt[i] + newPreD;
+    if (count === 3 && i !== 0 && numInt[i - 1] !== '-') {
       newPreD = ',' + newPreD;
       count = 0;
     }
   }
 
-  return newPreD + postD;
+  return newPreD + numDec;
 }
 
 
