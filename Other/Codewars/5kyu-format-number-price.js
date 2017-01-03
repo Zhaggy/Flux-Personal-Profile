@@ -7,7 +7,7 @@
 
 
 const numberToPrice = num => {
-  if (isNaN(num)) return 'NaN';
+  if (isNaN(num) || !num) return 'NaN';
 
   let numStr = num.toString();
   let ind = numStr.indexOf('.')
@@ -16,17 +16,15 @@ const numberToPrice = num => {
   postD = numStr.substr(ind);
 
   if (postD.length > 2) postD = postD.substr(0, 3);
-  if (postD.length < 2) {
+  if (postD.length < 3) {
     if (postD.length === 0) postD = '.00';
-    while (postD.lenght < 2) {
-      postD += '0';
-    }
+    while (postD.length <= 2) postD += '0';
   }
 
   let newPreD = '';
   for (let i = preD.length - 1, count = 1; i >= 0; i--, count++) {
     newPreD = preD[i] + newPreD;
-    if (count === 3) {
+    if (count === 3 && i !== 0 && preD[i - 1] !== '-') {
       newPreD = ',' + newPreD;
       count = 0;
     }
@@ -36,7 +34,6 @@ const numberToPrice = num => {
 }
 
 
-console.log(numberToPrice(1234567));
-// 1,234,567.00
-console.log(numberToPrice(1234));
+console.log(numberToPrice(1000000.5));
+console.log(numberToPrice(1234.1));
 console.log(numberToPrice('hi'));
