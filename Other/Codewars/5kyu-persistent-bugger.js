@@ -10,6 +10,7 @@ const persistence = n => {
     while (n/x >= 1 || (n%x - n%(x/10))/(x/10)) {
       newN *= (n%x - n%(x/10))/(x/10);
       x *= 10;
+      if (newN === 0) return count;
     }
     n = newN;
   }
@@ -19,3 +20,6 @@ const persistence = n => {
 console.log('39:', persistence(39));
 console.log('12:', persistence(12));
 console.log('4:', persistence(4));
+
+// TIME COMPLEXITY: O(n)
+// SPACE COMPLEXITY: O(n)
