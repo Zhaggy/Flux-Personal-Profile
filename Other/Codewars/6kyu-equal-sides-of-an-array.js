@@ -20,3 +20,6 @@ console.log(findEvenIndex([1,100,50,-51,1,1]));
 // 1
 console.log(findEvenIndex([1,2,3,4,5,6]));
 // -1
+
+// TIME COMPLEXITY: O(n)
+// SPACE COMPLEXITY: O(1)
