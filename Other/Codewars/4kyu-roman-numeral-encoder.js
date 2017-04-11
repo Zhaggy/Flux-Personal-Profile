@@ -4,36 +4,23 @@
 
 const romanNumeralEncoder = num => {
   let dict = {
-    1: ['I', 'V'],
-    10: ['X', 'L'],
-    100: ['C', 'D'],
-    1000: ['M']
-    // 1: 'I',
-    // 5: 'V',
-    // 10: 'X',
-    // 50: 'L',
-    // 100: 'C',
-    // 500: 'D',
-    // 1000: 'M'
+    1000: 'M', 900: 'CM', 500: 'D', 400: 'CD',
+    100: 'C', 90: 'XC', 50: 'L', 40: 'XL',
+    10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'
   }
-  let roman = '';
-  if (num % 10) {
-    let res = '';
-    let ones = num % 10;
 
-    if (ones < 3) {
-      while (ones) {
-        res += 'I';
-        ones--;
-      }
+  if (!num) return '';
+
+  for ( let key in dict ) {
+    if (num >= key) {
+      return dict[key] + romanNumeralEncoder(num - key);
     }
-
-    roman = res + roman;
   }
+
   return roman;
 }
 
-
+console.log(romanNumeralEncoder(2));
 // 1666 MDCLXVI
 // 1000 M
 //  600 DC
