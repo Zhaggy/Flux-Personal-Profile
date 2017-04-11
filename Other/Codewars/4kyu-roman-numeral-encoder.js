@@ -12,7 +12,6 @@ const romanNumeralEncoder = num => {
   if (!num) return '';
 
   for ( let i = 0; i < dict.length; i++ ) {
-
     if (num >= dict[i][0]) {
       return dict[i][1] + romanNumeralEncoder(num - dict[i][0]);
     }
@@ -21,9 +20,7 @@ const romanNumeralEncoder = num => {
   return roman;
 }
 
+// TIME COMPLEXITY: O(n)
+// SPACE COMPLEXITY: O(1)
+
 console.log(romanNumeralEncoder(4));
-// 1666 MDCLXVI
-// 1000 M
-//  600 DC
-//   60 LX
-//    6 VI
